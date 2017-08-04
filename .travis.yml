@@ -1,0 +1,30 @@
+language: go
+
+env:
+  global:
+    - STUFF_N_TING=stuff
+
+install:
+  - echo "Install ${STUFF_N_TING}"
+
+before_script:
+  - echo "Before test ${STUFF_N_TING}"
+
+script:
+  - echo "Test ${STUFF_N_TING}"
+
+before_deploy:
+  - echo "Before deploy ${STUFF_N_TING}"
+
+deploy:
+  provider: script
+  script: echo "Deploy ${STUFF_N_TING}"
+  on:
+    branch: master
+    tags: true
+    condition: "$TRAVIS_TAG =~ ^release.*$"
+
+notifications:
+  email: false
+
+# vim: set ts=2 sw=2 tw=0 et:
