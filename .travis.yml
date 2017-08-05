@@ -15,6 +15,7 @@ script:
 
 before_deploy:
   - echo "Before deploy ${STUFF_N_TING}"
+  - env
 
 deploy:
   provider: script
