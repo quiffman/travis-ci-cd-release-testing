@@ -23,7 +23,7 @@ deploy:
   on:
     branch: master
     tags: true
-    condition: "$TRAVIS_TAG =~ ^release.*$"
+    condition: "$TRAVIS_TAG =~ ^release.*$ && $(git verify-tag $TRAVIS_TAG)"
 
 notifications:
   email: false
